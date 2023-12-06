@@ -20,4 +20,16 @@ describe('ForbiddenComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
+  it('should have a h1', () => {
+    const h1 = fixture.nativeElement.querySelector('h1');
+    expect(h1).toBeTruthy();
+    expect(h1.textContent).toContain('Forbidden');
+  });
+
+  it('h1 content should be "forbidden"', () => {
+    const h1 = fixture.nativeElement.querySelector('h1');
+    expect(h1.textContent).toMatch(/forbidden/i);
+  });
+  
 });
