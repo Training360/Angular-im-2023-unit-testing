@@ -35,6 +35,7 @@ import { ForbiddenComponent } from "../app/page/forbidden/forbidden.component";
 
 - [ForbiddenSpec](src/tests/forbidden.component.spec.ts)
 - testing h1:
+
 ```typescript
 it("should have a h1", () => {
   const h1 = fixture.nativeElement.querySelector("h1");
@@ -47,6 +48,47 @@ it('h1 content should be "forbidden"', () => {
   expect(h1.textContent).toMatch(/forbidden/i);
 });
 ```
+
 - command: `npm test`
 
-## 
+## Testing a method call
+
+- [ForbiddenComp](src/app/page/forbidden/forbidden.component.ts)
+
+```typescript
+onHomeClick() {
+  console.log('home');
+  }
+```
+
+- [ForbiddenComp html](src/app/page/forbidden/forbidden.component.html)
+
+```html
+<h2 style="text-align: center; margin-top: 1em;">
+  <button (click)="onHomeClick()">Go to the home page</button>
+</h2>
+```
+
+- [ForbiddenSpec](src/tests/forbidden.component.spec.ts)
+
+```typescript
+it("should have a button to the home page", () => {
+  const button = fixture.nativeElement.querySelector("button");
+  expect(button).toBeTruthy();
+});
+
+it('button text should be "go to the home page"', () => {
+  const button = fixture.nativeElement.querySelector("button");
+  expect(button.textContent).toMatch(/go to the home page/i);
+});
+
+it("click on button shuld be trigger the onHomeClick method", () => {
+  const button = fixture.nativeElement.querySelector("button");
+  spyOn(component, "onHomeClick");
+
+  button.click();
+  expect(component.onHomeClick).toHaveBeenCalled();
+});
+```
+
+

@@ -31,5 +31,23 @@ describe('ForbiddenComponent', () => {
     const h1 = fixture.nativeElement.querySelector('h1');
     expect(h1.textContent).toMatch(/forbidden/i);
   });
+
+  it('should have a button to the home page', () => {
+    const button = fixture.nativeElement.querySelector('button');
+    expect(button).toBeTruthy();
+  });
+
+  it('button text should be "go to the home page"', () => {
+    const button = fixture.nativeElement.querySelector('button');
+    expect(button.textContent).toMatch(/go to the home page/i);
+  });
+
+  it('click on button shuld be trigger the onHomeClick method', () => {
+    const button = fixture.nativeElement.querySelector('button');
+    spyOn(component, 'onHomeClick');
+
+    button.click();
+    expect(component.onHomeClick).toHaveBeenCalled();
+  });
   
 });

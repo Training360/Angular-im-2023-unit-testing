@@ -9,5 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './forbidden.component.scss'
 })
 export class ForbiddenComponent {
-
+  onHomeClick() {
+    console.log('home');
+  }
 }
