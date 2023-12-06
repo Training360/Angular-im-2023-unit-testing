@@ -56,7 +56,7 @@ export class CustomerEditorComponent implements OnInit {
   form = new FormGroup({
     name: new FormControl('', [
       Validators.required,
-      Validators.pattern('^[a-zA-Z0-9 ]{3,}$'),
+      Validators.pattern('^[a-zA-Z0-9\. ]{3,}$'),
     ]),
     email: new FormControl('', {
       validators: [Validators.required, Validators.email],

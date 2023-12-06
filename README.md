@@ -128,4 +128,9 @@ it("customer should be the first customer in the list", () => {
 });
 ```
 
+## Form testing
+- [CustomerEditorComponentSpec](src/tests/customer-editor.component.spec.ts)
+- find the comment: // Form testing
+
+
 

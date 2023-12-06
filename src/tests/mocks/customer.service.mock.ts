@@ -5,7 +5,6 @@ import { Observable, of } from "rxjs";
 @Injectable()
 export class CustomerServiceMock {
   getAll(): Observable<Customer[]> {
-    console.log('GET ALL');
     return of([
       {
         id: 1,
