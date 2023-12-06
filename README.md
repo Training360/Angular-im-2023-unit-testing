@@ -4,8 +4,31 @@
 - `npm run dev`
 
 ## Intro
-- [customer-editor.component.ts](src/app/page/customer-editor/customer-editor.component.ts)
-- [customer-editor.component.html](src/app/page/customer-editor/customer-editor.component.html)
+- [tsconfig.spec.json: explain](tsconfig.spec.json)
+- command: `ng test`
+
+## Smart and dump components
+- [ForbiddenComp: a dumb example](src/app/page/forbidden/forbidden.component.ts)
+- [ForbiddenSpec: moved to](src/tests/forbidden.component.spec.ts)
+- change the component path:
+```typescript
+import { ForbiddenComponent } from '../app/page/forbidden/forbidden.component';
+```
+- [package.json](package.json)
+- create/modify test scripts:
+```json
+"test:01": "ng test --include=**/tests/forbidden.component.spec.ts",
+"test": "ng test --include=**/tests/*.spec.ts --browsers ChromeHeadless --watch false",
+```
+- commands: 
+- `npm run test:01`
+- `npm test`
+
+##
+
+
+
+
 
 ## JSON-based forms
 - command: `ng g c common/form-json`

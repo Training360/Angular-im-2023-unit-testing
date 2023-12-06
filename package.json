@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
+    "test": "ng test --include=**/tests/*.spec.ts --browsers ChromeHeadless --watch false",
+    "test:01": "ng test --include=**/tests/forbidden.component.spec.ts",
     "server": "json-server-auth --watch server/db.json --port 3000",
     "dev": "concurrently --kill-others \"ng serve\" \"npm run server\""
   },
