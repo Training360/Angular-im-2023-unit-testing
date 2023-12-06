@@ -91,4 +91,41 @@ it("click on button shuld be trigger the onHomeClick method", () => {
 });
 ```
 
+## Testing and Dependency Injection
+
+- [CustomerEditor: copy to](src/tests/customer-editor.component.spec.ts)
+- fix component path:
+- `import { CustomerEditorComponent } from '../app/page/customer-editor/customer-editor.component';`
+- add imports:
+
+```typescript
+HttpClientTestingModule,
+BrowserAnimationsModule,
+```
+
+- mock CustomerService:
+- [CustomerServiceMock: create](src/tests/mocks/customer.service.mock.ts)
+- set providers:
+- [CustomerEditor: edit](src/tests/customer-editor.component.spec.ts)
+
+```typescript
+providers: [
+  {
+    provide: CustomerService,
+    useClass: CustomerServiceMock,
+  },
+],
+```
+
+```typescript
+it("customer should be the first customer in the list", () => {
+  component.id = 1;
+  component.ngOnInit();
+
+  setTimeout(() => {
+    expect(component.customer()).toBe(component.store.list()[0]);
+  });
+});
+```
+
 
