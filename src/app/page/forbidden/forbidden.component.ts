@@ -10,4 +10,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ForbiddenComponent {
 
+  onHomeClick() {
+    console.log('clicked');
+  }
 }

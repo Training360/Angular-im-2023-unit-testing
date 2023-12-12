@@ -3,8 +3,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormJsonComponent } from './form-json.component';
 
 describe('FormJsonComponent', () => {
-  let component: FormJsonComponent;
-  let fixture: ComponentFixture<FormJsonComponent>;
+  let component: FormJsonComponent<any>;
+  let fixture: ComponentFixture<FormJsonComponent<any>>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
